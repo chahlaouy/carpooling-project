@@ -1,0 +1,150 @@
+
+
+<ion-content [fullscreen]="true" color="light">
+  <ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar translucent>
+      <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 20px;">
+
+        <ion-button slot="start" class="box-none" style="--background: transparent">
+          <ion-icon name="notifications-outline" color="dark"></ion-icon>
+        </ion-button>
+        <h1>معك</h1>
+        <ion-buttons dir="ltr">
+          <ion-menu-button menu="main-menu" color="light">
+            <ion-icon name="apps" color="dark"></ion-icon>
+          </ion-menu-button>
+        </ion-buttons>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-searchbar dir="rtl" placeholder="بحث" searchIcon="search-outline"></ion-searchbar>
+  <div class="header"></div>
+
+  <div class="main-content-app">
+
+    <div class="wrapper">
+      <ion-card class="main-card">
+        <ion-card-header>
+          <h1>أحدث الإعلانات</h1>
+        </ion-card-header>
+        <ion-card-content class="card-content-no-padding">
+          <ion-grid>
+            <ion-row>
+
+              <ion-col>
+                <ion-card class="one">
+                  <div class="overlay"></div>
+                  <ion-card-content>
+                    <div class="flex-inbetween">
+                      <div class="flex">
+                        <ion-fab-button class="ml">
+                          <ion-icon name="person"></ion-icon>
+                        </ion-fab-button>
+                        <ion-label>الاسم</ion-label>
+                      </div>
+                      <div>
+                        <h1>250 <ion-icon name="cash-outline"></ion-icon></h1>
+                      </div> 
+                    </div>
+                    <ion-item>
+                      <ion-icon name="navigate-outline" slot="start"></ion-icon>
+                      <ion-label> المغادرة من :</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="locate-outline" slot="start"></ion-icon>
+                      <ion-label> مكان الوصول :</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="timer-outline" slot="start"></ion-icon>
+                      <ion-label> وقت المغادرة :</ion-label>
+                    </ion-item>
+                    <ion-chip>
+                      <ion-label>المزيد من التفاصيل</ion-label>
+                    </ion-chip>
+                    
+                  </ion-card-content>
+
+                </ion-card>
+
+              </ion-col>
+              <ion-col >
+
+                <ion-card class="two">
+                  <div class="overlay"></div>
+                  <ion-card-content>
+
+                    <div class="flex-inbetween">
+                      <div class="flex">
+                        <ion-fab-button class="ml">
+                          <ion-icon name="person"></ion-icon>
+                        </ion-fab-button>
+                        <ion-label>الاسم</ion-label>
+                      </div>
+                      <div>
+                        <h1>250 <ion-icon name="cash-outline"></ion-icon></h1>
+                      </div>
+                    </div>
+
+                    <ion-item>
+                      <ion-icon name="navigate-outline" slot="start" color="light"></ion-icon>
+                      <ion-label> المغادرة من :</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="locate-outline" slot="start" color="light"></ion-icon>
+                      <ion-label> مكان الوصول :</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="timer-outline" slot="start" color="light"></ion-icon>
+                      <ion-label> وقت المغادرة :</ion-label>
+                    </ion-item>
+
+                  </ion-card-content>
+                </ion-card>
+
+              </ion-col>
+              <ion-col >
+
+                <ion-card class="three">
+                  <div class="overlay"></div>
+                  <ion-card-content>
+                    <div class="flex-inbetween">
+                      <div class="flex">
+                        <ion-fab-button class="ml" >
+                          <ion-icon name="person"></ion-icon>
+                        </ion-fab-button>
+                        <ion-label>الاسم</ion-label>
+                      </div>
+                      <div>
+                        <h1>250 <ion-icon name="cash-outline"></ion-icon></h1>
+                      </div>
+                    </div>
+
+                    <ion-item>
+                      <ion-icon name="navigate-outline" slot="start" color="light"></ion-icon>
+                      <ion-label> المغادرة من :</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="locate-outline" slot="start" color="light"></ion-icon>
+                      <ion-label> مكان الوصول :</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon name="timer-outline" slot="start" color="light"></ion-icon>
+                      <ion-label> وقت المغادرة :</ion-label>
+                    </ion-item>
+
+                  </ion-card-content>
+                </ion-card>
+
+              </ion-col>
+
+
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+  </div>
+
+</ion-content>

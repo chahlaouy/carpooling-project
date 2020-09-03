@@ -1,0 +1,139 @@
+
+.main-content-app{
+    
+    .box-none{
+        --box-shadow: none  !important
+    }
+    
+    .wrapper{
+        ion-card.main-card{
+            --background: #f4f5f8;
+            
+            margin: -50px 0px;
+            border-radius: 20px;
+            box-shadow: none !important;
+            ion-card-content.card-content-no-padding{
+                padding: 0;
+            }
+        }
+        ion-card.one{
+            position: relative;
+            background: url(../../assets/carpooling-bg.jpg) no-repeat center center/cover;
+            border-radius: 20px;
+            box-shadow: none !important;
+            ion-fab-button{
+                --background: #f381ff
+            }
+            .overlay{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: #ffffffba;
+            }
+        }
+        ion-card.two{
+            position: relative;
+            --background: linear-gradient(90deg, #6370ff 0%, #3932c0 100%);
+            background: url(../../assets/carpooling-bg.jpg) no-repeat center center/cover;
+            border-radius: 20px;
+            box-shadow: none !important;
+            color: #f2f2f2;
+            ion-item{
+                color: #f2f2f2;
+            }
+            ion-fab-button{
+                --background: #4f43f5
+            }
+            .overlay{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: #6370ffcc;
+            }
+        }
+        ion-card.three{
+            position: relative;
+            --background: linear-gradient( 135deg, #F5CBFF 10%, #C346C2 100%);
+            background: url(../../assets/carpooling-bg.jpg) no-repeat center center/cover;
+            border-radius: 20px;
+            box-shadow: none !important;
+            color: #f2f2f2;
+            ion-item{
+                color: #f2f2f2;
+            }
+            ion-fab-button{
+                --background: #5053e2
+            }
+            .overlay{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: #c346c2b3;
+            }
+        }
+        ion-chip{
+            --background: transparent
+        }
+        h3{
+            margin-top: 20px;
+            font-weight: bold;
+            color: #7b7b7b;
+        }
+
+        
+
+
+        .pink{
+            background: rgb(236, 84, 236);
+        }
+
+        .blue-light{
+            color: #00bdf1;
+        }
+        
+        .mt{
+            margin-top: 30px;
+        }
+        .ml{
+            margin-left: 10px
+        }
+        .flex{
+            display: flex;
+            align-items: center;
+        }
+        .flex-inbetween{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
+.header{
+    height: 200px;
+    width: 100%;
+    // background: linear-gradient(-90deg, #f581ff 0%, #4d71d7 100%);
+    // background: linear-gradient(90deg, #6370ff 0%, #3932c0 100%);
+    // background-image: linear-gradient( 135deg, #2AFADF 10%, #4C83FF 100%);
+
+    box-shadow: 0px 1px 10px rgba(98, 140, 255, .5);
+    // transform: rotate(20deg);
+    margin: -150px 0px 0px 0px;
+}
+
+.box-none{
+    --box-shadow: none  !important
+}
+
+ion-searchbar{
+    padding-left: 35px;
+    padding-right: 35px;
+    --background: #e9e9e9;
+    --box-shadow:none !important
+}
+
