@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { CommonModule } from "@angular/common";
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -20,7 +21,8 @@ import { DashboardModule } from './dashboard/dashboard.module'
     IonicModule.forRoot(),
     AppRoutingModule,
     UsersModule,
-    DashboardModule
+    DashboardModule,
+    CommonModule
   ],
   providers: [
     StatusBar,

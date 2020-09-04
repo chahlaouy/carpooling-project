@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true">
+
+  <div class="wrapper">
+    <div class="overlay-wrapper"></div>
+    <ion-header [translucent]="true" class="ion-no-border">
+      <ion-toolbar translucent>
+        <div class="flex-inbetween mt">
+
+          <ion-button slot="start" class="box-none" style="--background: transparent">
+            <ion-icon name="notifications-outline" color="light"></ion-icon>
+          </ion-button>
+
+          <h1 class="title">معك</h1>
+          <ion-buttons dir="ltr">
+            <ion-menu-button menu="main-menu">
+              <ion-icon name="apps" color="light"></ion-icon>
+            </ion-menu-button>
+          </ion-buttons>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <h1 class="title"> الإعلانات</h1>
+
+    <ion-card class="main-card mt">
+      <ion-card-content class="card-content-no-padding">
+        <div *ngFor="let ride of rides">
+
+          <ion-card >
+            <ion-card-content>
+              <ul>
+                <li> {{ride.details.depart}} : <span style="color: rgb(86, 97, 252)">11:30</span></li>
+                <li> {{ride.details.arrival}} : <span style="color: rgb(86, 97, 252)">14:30</span> </li>
+              </ul>
+              <ion-item lines="none">
+                <ion-icon name="cash-outline" slot="start" size="small" ></ion-icon>
+                <ion-label>
+                  <div class="flex">
+                    <span>RSA / </span>
+                    <h1>{{ride.price}}</h1>
+                  </div>
+                </ion-label> 
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-card-content>
+    </ion-card> 
+        
+  </div>
+</ion-content>

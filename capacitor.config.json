@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "carpooling-angular-ionic",
+  "appId": "com.carpooling.project",
+  "appName": "carpooling",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
