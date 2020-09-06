@@ -12,7 +12,8 @@
       </ion-label>
     </div>
   </div>
-  <form #userCredentials ngModel="userCredentials" (submit)="getUserCrendentials(userCredentials.value)">
+  <form [formGroup]="user" (ngSubmit)="onSubmit()">
+    
     <ion-card class="login-card">
       <ion-card-header>
         <ion-card-title>انشاء حساب جديد</ion-card-title>
@@ -22,12 +23,12 @@
 
         <ion-item>
           <ion-label position="floating">اسم المستخدم</ion-label>
-          <ion-input type="text" ngModel name="username"></ion-input>
+          <ion-input type="text" formControlName="username" ngDefaultControl></ion-input>
         </ion-item>
         <ion-item>
 
           <ion-label>جنس</ion-label>
-          <ion-select placeholder="اختر" ngModel name="gender">
+          <ion-select placeholder="اختر" name="gender" formControlName="gender" ngDefaultControl>
             <ion-select-option value="female">امرأة</ion-select-option>
             <ion-select-option value="male">رجل</ion-select-option>
           </ion-select>
@@ -35,34 +36,34 @@
 
         <ion-item>
           <ion-label position="floating">عمر</ion-label>
-          <ion-input type="text" ngModel name="age"></ion-input>
+          <ion-input type="text" formControlName="age" ngDefaultControl name="age"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">البريد الإلكتروني</ion-label>
-          <ion-input type="email" ngModel name="email"></ion-input>
+          <ion-input type="email" formControlName="email" ngDefaultControl name="email"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">رقم الهاتف</ion-label>
-          <ion-input type="number" ngModel name="phone"></ion-input>
+          <ion-input type="number" formControlName="phone" ngDefaultControl name="phone"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label slot="start">الصوره الشخصيه</ion-label>
           <ion-icon lazy="true" slot="end" name="image" color="tertiary"></ion-icon>
-          <ion-input type="file" accept="image/*" style="opacity: 0; position: absolute" name="picture" ngModel>
+          <ion-input type="file" accept="image/*" style="opacity: 0; position: absolute" name="picture" formControlName="picture" ngDefaultControl>
           </ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">كلمه السر</ion-label>
-          <ion-input type="password" ngModel name="password"></ion-input>
+          <ion-input type="password" formControlName="password" ngDefaultControl name="password"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">تأكيد كلمة المرور</ion-label>
-          <ion-input type="password" ngModel name="confirmPassword"></ion-input>
+          <ion-input type="password" formControlName="confirmationPassword" ngDefaultControl name="confirmPassword"></ion-input>
         </ion-item>
 
       </ion-card-content>

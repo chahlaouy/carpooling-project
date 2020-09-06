@@ -13,8 +13,10 @@ export class HomePage implements OnInit{
   sliderConfig = {
     spaceBetween: 10,
     centeredSlides: false,
-    slidesPerView: 1.6
+    slidesPerView: 1.4
   }
+
+  currentUser = null;
 
   constructor(private rideservic:RidesService, private router: Router) {}
 
@@ -25,5 +27,14 @@ export class HomePage implements OnInit{
   loginIn(){
     this.router.navigate(['login']);
   }
+  pushList(){
+    this.router.navigate(['home/list'])
+  }
+  pushLogin(){
+    this.router.navigate(['register'])
+  }
 
+  getUser(){
+    this.currentUser = this.rideservic.getCurrentUser();
+  }
 }

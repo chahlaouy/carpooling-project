@@ -9,6 +9,7 @@ export class RidesService {
     {
       name: "محمد بن زايد",
       price: "250",
+      class: "", 
       expanded: true,
       details: {
         depart: "جدة",
@@ -19,6 +20,7 @@ export class RidesService {
     {
       name: "محمد بن زايد",
       price: "250",
+      class: "yellow",
       expanded: true,
       details: {
         depart: "جدة",
@@ -29,6 +31,7 @@ export class RidesService {
     {
       name: "محمد بن زايد",
       price: "250",
+      class: "",
       expanded: true,
       details: {
         depart: "جدة",
@@ -39,6 +42,7 @@ export class RidesService {
     {
       name: "محمد بن زايد",
       price: "250",
+      class: "yellow",
       expanded: true,
       details: {
         depart: "جدة",
@@ -48,9 +52,33 @@ export class RidesService {
     },
     
   ]
+
+  // currentUser = {
+  //   name: "",
+  //   email: "",
+  //   phone: "",
+  //   age: "",
+  //   image: "",
+  //   confirmPassword: "",
+  //   gender: "",
+  //   picture: ""
+  // }
+  currentUser = null;
+
   constructor() { }
 
   getrides(){
     return this.data;
+  }
+
+  logIn(user){
+    this.currentUser = user
+  }
+  logOut(user){
+    this.currentUser = null
+  }
+
+  getCurrentUser(){
+    return this.currentUser
   }
 }

@@ -18,4 +18,8 @@ export class ListComponent implements OnInit {
     this.rides = this.rideservic.getrides(); 
   }
 
+  pushHome(){
+    this.router.navigate(['home'])
+  }
+
 }

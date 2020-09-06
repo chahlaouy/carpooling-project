@@ -1,0 +1,157 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar translucent>
+    <ion-buttons dir="ltr">
+      <ion-menu-button menu="main-menu" color="light"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <div class="header">
+    <div class="content">
+      <ion-grid>
+        <ion-row>
+
+          <ion-col class="flex">
+            <div>
+              <h2>
+                250
+                منشورا
+              </h2>
+              <span class="sub">كل شهر</span>
+            </div>
+          </ion-col>
+
+          <ion-col class="flex">
+            <ion-button size="large">
+              ا نضم الان
+            </ion-button>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+  </div>
+  <div class="main-content-app">
+
+    <div class="wrapper">
+      <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-grid>
+
+              <ion-row class="ion-text-center">
+
+                <ion-col>
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button">
+                      <ion-icon name="person" color="primary"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3> معلومات عامة </h3>
+                </ion-col>
+
+                <ion-col >
+                  <div class="flex justify-center items-center" >
+                    <ion-fab-button color="light" type="button" [routerLink]="['/user/favorite']">
+                      <ion-icon name="heart" color="tertiary"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3>تفضيلاتي</h3>
+                </ion-col>
+
+                <ion-col>
+
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button">
+                      <ion-icon name="car-sport" class="pink"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3>سيارتي</h3>
+                </ion-col>
+
+              </ion-row>
+
+
+              <ion-row class="ion-text-center mt-3">
+
+                <ion-col>
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button">
+                      <ion-icon name="document-text" class="blue-light"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3>تقييماتي</h3>
+                </ion-col>
+
+                <ion-col>
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button">
+                      <ion-icon name="trash" color="danger"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3>حذف الحساب</h3>
+                </ion-col>
+
+                <ion-col>
+
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button">
+                      <ion-icon name="key" class="orange"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3>تغيير كلمة المرور</h3>
+                </ion-col>
+
+              </ion-row>
+
+            </ion-grid>
+          </ion-item>
+          <ion-item>
+            <ion-grid>
+              <ion-row class="ion-text-center mt-4">
+                <ion-col>
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button">
+                      <ion-icon name="add-circle-outline" class="grey-900"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3>الحجوزات</h3>
+                  
+                </ion-col>
+                <ion-col>
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button">
+                      <ion-icon name="car-sport-outline" class="blue-600"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3>اضف رحلة</h3>
+                  
+                </ion-col>
+                <ion-col>
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button">
+                      <ion-icon name="chatbubble-outline" class="yellow-600"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3>صندوق الرسائل</h3>
+                  
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+          <!-- <ion-item lines="none" class="mt">
+            <ion-button color="light" slot="end" size="large" class="box-none">
+              <ion-icon name="chevron-forward" color="success"></ion-icon>
+            </ion-button>
+            <p class="card-footer">Move cheaper and have new friends</p>
+          </ion-item> -->
+        </ion-card-content>
+      </ion-card>
+      
+    </div>
+
+  </div>
+</ion-content>

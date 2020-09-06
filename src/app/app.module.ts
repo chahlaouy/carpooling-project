@@ -10,6 +10,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
+
 import { UsersModule } from './users/users.module'
 import { DashboardModule } from './dashboard/dashboard.module'
 
@@ -22,7 +25,9 @@ import { DashboardModule } from './dashboard/dashboard.module'
     AppRoutingModule,
     UsersModule,
     DashboardModule,
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,

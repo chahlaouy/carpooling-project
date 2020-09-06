@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <form [formGroup]="userFavorite" (ngSubmit)="onSubmit()">
+    <!-- <input type="radio" value="male" formControlName="smoking" >
+    <input type="radio"  value="female" formControlName="smoking" >
+    <input type="radio" value="autre" formControlName="smoking" > -->
+
+    <!-- <ion-radio  value="autre" formControlName="smoking" ngDefaultControl></ion-radio>
+    <ion-radio  value="ff" formControlName="smoking" ngDefaultControl></ion-radio>
+    <ion-radio  value="ffff" formControlName="smoking" ngDefaultControl></ion-radio> -->
+
+
+    <ion-item>
+      <ion-label>Biff</ion-label>
+      <ion-radio slot="start" value="biff" formControlName="smoking" ngDefaultControl></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Biff</ion-label>
+      <ion-radio slot="start" value="biff" formControlName="smoking" ngDefaultControl></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Biff</ion-label>
+      <ion-radio slot="start" value="biff" formControlName="smoking" ngDefaultControl></ion-radio>
+    </ion-item>
+
+    
+  <!-- <ion-list>
+    <ion-item>
+      <ion-label>موسيقى</ion-label>
+      <ion-toggle color="tertiary"></ion-toggle>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>التدخين</ion-label>
+      <ion-toggle color="primary"></ion-toggle>
+      <ion-input  formControlName="smoking" ngDefaultControl>
+
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>الحيوانات الأليفة</ion-label>
+      <ion-toggle color="secondary"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>دردشة</ion-label>
+      <ion-toggle color="secondary"></ion-toggle>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-button type="submit">
+    submit
+  </ion-button>
+</form>
+</ion-content>
+
+
+
+<!-- 
+<ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      <ion-label>Name</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Biff</ion-label>
+      <ion-radio slot="end" value="mmmm" formControlName="music" ngDefaultControl></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Griff</ion-label>
+      <ion-radio slot="start" value="griff" formControlName="music" ngDefaultControl></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Buford</ion-label>
+      <ion-radio slot="start" value="buford" formControlName="music" ngDefaultControl></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list> -->
