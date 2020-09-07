@@ -18,53 +18,56 @@
       <ion-card-header>
         <ion-card-title>انشاء حساب جديد</ion-card-title>
         <ion-card-subtitle>الرجاء إدخال بيانات الاعتماد الخاصة بك</ion-card-subtitle>
+
       </ion-card-header>
       <ion-card-content>
+        <ion-list>
 
-        <ion-item>
-          <ion-label position="floating">اسم المستخدم</ion-label>
-          <ion-input type="text" formControlName="username" ngDefaultControl></ion-input>
-        </ion-item>
-        <ion-item>
-
-          <ion-label>جنس</ion-label>
-          <ion-select placeholder="اختر" name="gender" formControlName="gender" ngDefaultControl>
-            <ion-select-option value="female">امرأة</ion-select-option>
-            <ion-select-option value="male">رجل</ion-select-option>
-          </ion-select>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="floating">عمر</ion-label>
-          <ion-input type="text" formControlName="age" ngDefaultControl name="age"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="floating">البريد الإلكتروني</ion-label>
-          <ion-input type="email" formControlName="email" ngDefaultControl name="email"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="floating">رقم الهاتف</ion-label>
-          <ion-input type="number" formControlName="phone" ngDefaultControl name="phone"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label slot="start">الصوره الشخصيه</ion-label>
-          <ion-icon lazy="true" slot="end" name="image" color="tertiary"></ion-icon>
-          <ion-input type="file" accept="image/*" style="opacity: 0; position: absolute" name="picture" formControlName="picture" ngDefaultControl>
-          </ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="floating">كلمه السر</ion-label>
-          <ion-input type="password" formControlName="password" ngDefaultControl name="password"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="floating">تأكيد كلمة المرور</ion-label>
-          <ion-input type="password" formControlName="confirmationPassword" ngDefaultControl name="confirmPassword"></ion-input>
-        </ion-item>
+          <ion-item>
+            <ion-label position="floating">اسم المستخدم</ion-label>
+            <ion-input type="text" formControlName="username" ngDefaultControl></ion-input>
+          </ion-item>
+          <ion-item>
+  
+            <ion-label>جنس</ion-label>
+            <ion-select placeholder="اختر" name="gender" formControlName="gender" ngDefaultControl>
+              <ion-select-option value="female">امرأة</ion-select-option>
+              <ion-select-option value="male">رجل</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="floating">عمر</ion-label>
+            <ion-input type="text" formControlName="age" ngDefaultControl name="age"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="floating">البريد الإلكتروني</ion-label>
+            <ion-input type="email" formControlName="email" ngDefaultControl name="email"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="floating">رقم الهاتف</ion-label>
+            <ion-input type="number" formControlName="phone" ngDefaultControl name="phone"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label slot="start">الصوره الشخصيه</ion-label>
+            <ion-icon lazy="true" slot="end" name="image" color="tertiary"></ion-icon>
+            <ion-input type="file" accept="image/*" style="opacity: 0; position: absolute" name="picture" formControlName="picture" ngDefaultControl>
+            </ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="floating">كلمه السر</ion-label>
+            <ion-input type="password" formControlName="password" ngDefaultControl name="password"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="floating">تأكيد كلمة المرور</ion-label>
+            <ion-input type="password" formControlName="confirmationPassword" ngDefaultControl name="confirmPassword"></ion-input>
+          </ion-item>
+        </ion-list>
 
       </ion-card-content>
     </ion-card>

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { RequestsComponent } from './requests/requests.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
     path: 'favorite',
     component: FavoriteComponent,
   },
+  {
+    path: 'requests',
+    component: RequestsComponent,
+  },
 ];
 
 
@@ -35,7 +40,8 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    RequestsComponent
   ],
   imports: [
     CommonModule,

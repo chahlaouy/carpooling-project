@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms'
 import { RidesService } from 'src/app/rides.service';
 import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-register',
@@ -12,19 +13,22 @@ export class RegisterComponent implements OnInit {
 
 
   user: FormGroup;
-  
+  authError: any;
   constructor(
     private fb: FormBuilder,
-    private rideSer:RidesService,
+    private authService: FirebaseService,
     private router:Router
     ) { }
 
   ngOnInit() {
-    this.initializeForm()
+    this.initializeForm();
+    this.authService.eventAuthError$.subscribe(data => {
+      this.authError = data;
+    })
   }
 
 
-  initializeForm(){
+  initializeForm(){ 
     this.user = this.fb.group({
       username: "",
       password: "",
@@ -38,8 +42,7 @@ export class RegisterComponent implements OnInit {
   }
   
   onSubmit(){
-    this.rideSer.logIn(this.user.value);
-    this.router.navigate(['/home'])
+    this.authService.createDriver(this.user.value);
   }
 
 }

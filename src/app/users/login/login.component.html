@@ -17,6 +17,7 @@
     <ion-card-header>
       <ion-card-title> صفحة تسجيل الدخول </ion-card-title>
       <ion-card-subtitle>الرجاء إدخال بيانات الاعتماد الخاصة بك</ion-card-subtitle>
+      {{authError}}
     </ion-card-header>
     <ion-card-content>
       <ion-item>
@@ -31,7 +32,6 @@
   </ion-card>
   <div class="btn-login">
     <ion-button expand="block" mode="ios" size="large" type="submit">
-      <!-- [routerLink]="['/home']" -->
       تسجيل الدخول
       <ion-icon name="enter-outline" slot="end"></ion-icon>
     </ion-button>
@@ -40,7 +40,6 @@
     </p>
     <ion-button expand="block" mode="ios" size="large" color="light" [routerLink]="['/user/register']">
       انشئ حساب
-      <!-- <ion-icon name="person-add-outline" slot="end" ></ion-icon> -->
     </ion-button>
   </div>
 </form>

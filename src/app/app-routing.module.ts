@@ -10,16 +10,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+      path: 'home',
+      loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
     path: 'user',
     loadChildren: () => import('./users/users.module').then( m => m.UsersModule)
   },
   {
     path: 'user',
     redirectTo: 'user'
-  },
-  {
-      path: 'home',
-      loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'dashboard',

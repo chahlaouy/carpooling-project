@@ -53,6 +53,37 @@ export class RidesService {
     
   ]
 
+  requests=[
+    {
+      name: "john",
+      age: "30",
+      destination: "jeddah 1st ",
+      currentLocation: "jeddah 1st ",
+      nbSeats: 3
+    },
+    {
+      name: "john",
+      age: "30",
+      destination: "jeddah 1st ",
+      currentLocation: "jeddah 1st ",
+      nbSeats: 3
+    },
+    {
+      name: "john",
+      age: "30",
+      destination: "jeddah 1st ",
+      currentLocation: "jeddah 1st ",
+      nbSeats: 3
+    },
+    {
+      name: "john",
+      age: "30",
+      destination: "jeddah 1st ",
+      currentLocation: "riadh 1st ",
+      nbSeats: 3
+    }
+
+  ]
   // currentUser = {
   //   name: "",
   //   email: "",
@@ -80,5 +111,9 @@ export class RidesService {
 
   getCurrentUser(){
     return this.currentUser
+  }
+
+  getRequests(){
+    return this.requests
   }
 }

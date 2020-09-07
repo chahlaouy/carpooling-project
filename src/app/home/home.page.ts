@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RidesService } from '../rides.service'
 import { Router } from '@angular/router';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-home',
@@ -16,13 +17,30 @@ export class HomePage implements OnInit{
     slidesPerView: 1.4
   }
 
-  currentUser = null;
+  currentUser: firebase.User;
 
-  constructor(private rideservic:RidesService, private router: Router) {}
+  constructor(
+    private rideservic:RidesService,
+    private router: Router,
+    private firebaseService: FirebaseService
+    ) {}
 
   ngOnInit(){
     this.rides = this.rideservic.getrides();
+
+    this.firebaseService.getUserState()
+    .subscribe(user => {
+      this.currentUser = user
+      console.log(this.currentUser)
+    })
+    
+
+    // this.firebaseService.signOut()
   }
+
+
+
+
 
   loginIn(){
     this.router.navigate(['login']);
@@ -32,9 +50,5 @@ export class HomePage implements OnInit{
   }
   pushLogin(){
     this.router.navigate(['register'])
-  }
-
-  getUser(){
-    this.currentUser = this.rideservic.getCurrentUser();
   }
 }

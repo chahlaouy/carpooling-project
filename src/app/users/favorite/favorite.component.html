@@ -1,89 +1,103 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons>
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" color="light">
-  <form [formGroup]="userFavorite" (ngSubmit)="onSubmit()">
-    <!-- <input type="radio" value="male" formControlName="smoking" >
-    <input type="radio"  value="female" formControlName="smoking" >
-    <input type="radio" value="autre" formControlName="smoking" > -->
-
-    <!-- <ion-radio  value="autre" formControlName="smoking" ngDefaultControl></ion-radio>
-    <ion-radio  value="ff" formControlName="smoking" ngDefaultControl></ion-radio>
-    <ion-radio  value="ffff" formControlName="smoking" ngDefaultControl></ion-radio> -->
-
-
-    <ion-item>
-      <ion-label>Biff</ion-label>
-      <ion-radio slot="start" value="biff" formControlName="smoking" ngDefaultControl></ion-radio>
+  
+  <div class="wrapper">
+    <div class="overlay-wrapper"></div>
+    <ion-header  class="ion-no-border">
+      <ion-toolbar>
+          <ion-button slot="end" class="box-none mt-3" style="--background: transparent">
+            <ion-icon name="chevron-back" size="large" class="yellow-dark"></ion-icon>
+          </ion-button>    
+      </ion-toolbar>
+    </ion-header>
+    <ion-item class="mt-2 mb-5" lines="none">
+      <ion-icon name="heart" slot="start" size="small" class="yellow-dark"></ion-icon>
+      <ion-label>
+        <ul>
+          <li>
+            <h2 class="text-lg yellow-dark">تفضيلاتي</h2>
+          </li>
+          <li><span class="text-sm yellow-dark">يمكنك اختيار أي مما يلي تسمح به </span></li>
+        </ul>
+      </ion-label>
     </ion-item>
-    <ion-item>
-      <ion-label>Biff</ion-label>
-      <ion-radio slot="start" value="biff" formControlName="smoking" ngDefaultControl></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>Biff</ion-label>
-      <ion-radio slot="start" value="biff" formControlName="smoking" ngDefaultControl></ion-radio>
-    </ion-item>
 
+    <ion-card class="main-card mt-5">
+      <ion-card-content>
+        <!-- <ion-card>
+          <ion-card-content> -->
+
+            <ion-item>
+              <ion-label>
+                موسيقى
+              </ion-label>
+              <label class="radiobutton_container">
+                <span class="ml-2">نعم</span>
+                <input name="type" type="radio">
+                <span class="radiobutton_mark"></span>
+              </label>
+                
+              <label class="radiobutton_container mr-3">
+                <span class="ml-2">لا</span>
+                
+                <input name="type" type="radio">
+                <span class="radiobutton_mark mr-5"></span>
+              </label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                التدخين
+              </ion-label>
+              <label class="radiobutton_container">
+                <span class="ml-2">نعم</span>
+                <input name="type" type="radio">
+                <span class="radiobutton_mark"></span>
+              </label>
+                
+              <label class="radiobutton_container mr-3">
+                <span class="ml-2">لا</span>
+                <input name="type" type="radio">
+                <span class="radiobutton_mark mr-5"></span>
+              </label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                دردشة
+              </ion-label>
+              <label class="radiobutton_container">
+                <span class="ml-2">نعم</span>
+                <input name="type" type="radio">
+                <span class="radiobutton_mark"></span>
+              </label>
+                
+              <label class="radiobutton_container mr-3">
+                <span class="ml-2">لا</span>
+                <input name="type" type="radio">
+                <span class="radiobutton_mark mr-5"></span>
+              </label>
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                الحيوانات الأليفة
+              </ion-label>
+              <label class="radiobutton_container">
+                <span class="ml-2">نعم</span>
+                <input name="type" type="radio">
+                <span class="radiobutton_mark"></span>
+              </label>
+                
+              <label class="radiobutton_container mr-3">
+                <span class="ml-2">لا</span>
+                <input name="type" type="radio">
+                <span class="radiobutton_mark mr-5"></span>
+              </label>
+            </ion-item>
+          <!-- </ion-card-content>
+        </ion-card> -->
+        
+       
+       
+      </ion-card-content>
+    </ion-card>
     
-  <!-- <ion-list>
-    <ion-item>
-      <ion-label>موسيقى</ion-label>
-      <ion-toggle color="tertiary"></ion-toggle>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label>التدخين</ion-label>
-      <ion-toggle color="primary"></ion-toggle>
-      <ion-input  formControlName="smoking" ngDefaultControl>
-
-      </ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label>الحيوانات الأليفة</ion-label>
-      <ion-toggle color="secondary"></ion-toggle>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>دردشة</ion-label>
-      <ion-toggle color="secondary"></ion-toggle>
-    </ion-item>
-  </ion-list> -->
-
-  <ion-button type="submit">
-    submit
-  </ion-button>
-</form>
+  </div>
 </ion-content>
-
-
-
-<!-- 
-<ion-list>
-  <ion-radio-group>
-    <ion-list-header>
-      <ion-label>Name</ion-label>
-    </ion-list-header>
-
-    <ion-item>
-      <ion-label>Biff</ion-label>
-      <ion-radio slot="end" value="mmmm" formControlName="music" ngDefaultControl></ion-radio>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Griff</ion-label>
-      <ion-radio slot="start" value="griff" formControlName="music" ngDefaultControl></ion-radio>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Buford</ion-label>
-      <ion-radio slot="start" value="buford" formControlName="music" ngDefaultControl></ion-radio>
-    </ion-item>
-  </ion-radio-group>
-</ion-list> -->
