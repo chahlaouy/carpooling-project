@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true" color="light">
+
+  <div class="wrapper">
+    <div class="overlay-wrapper"></div>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-button slot="end" class="box-none mt-3" style="--background: transparent">
+          <ion-icon name="chevron-back" size="large" class="yellow-dark"></ion-icon>
+        </ion-button>
+      </ion-toolbar>
+    </ion-header>
+    <ion-item class="mt-2 mb-5" lines="none">
+      <ion-icon name="car" slot="start" size="small" class="yellow-dark"></ion-icon>
+      <ion-label>
+        <ul>
+          <li>
+            <h2 class="text-2xl yellow-dark">سيارتي</h2>
+          </li>
+          <li><span class="text-sm yellow-dark">معلومات عن سيارتك</span></li>
+        </ul>
+      </ion-label>
+    </ion-item>
+
+    <ion-card class="main-card mt-5">
+      <ion-card-content>
+        <form [formGroup]="userCar" (ngSubmit)="onSubmit()">
+          <ion-list lines="none">
+            <ion-item>
+              <ion-label>ماركة السيارة</ion-label>
+              <ion-select (ionChange)="changeBrand($event)" formControlName="brand">
+                <ion-select-option value="" disabled>اختر ماركة السيارة</ion-select-option>
+                <ion-select-option *ngFor="let brand of brands" value="{{brand.label}}">{{brand.label}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="modelArray">
+              <ion-label>نوع السيارة</ion-label>
+              <ion-select formControlName="model">
+                <ion-select-option value="" disabled>اختر نوع السيارة</ion-select-option>
+                <ion-select-option *ngFor="let m of modelArray" value="{{m}}">{{m}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>موديل السيارة</ion-label>
+              <ion-select formControlName="state">
+                <ion-select-option value="" disabled>موديل السيارة</ion-select-option>
+                <ion-select-option *ngFor="let m of carReleaseYear" value="{{m}}">{{m}}</ion-select-option>
+                
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>رقم اللوحة</ion-label>
+              <ion-input formControlName="serialNumber"></ion-input>
+            </ion-item>
+            <ion-item class="mt-5">
+              <ion-button type="submit" size="large">
+                موافق
+              </ion-button>
+            </ion-item>
+          </ion-list>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>

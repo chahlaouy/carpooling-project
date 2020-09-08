@@ -1,0 +1,81 @@
+<ion-content [fullscreen]="true" color="light">
+
+  <div class="wrapper">
+    <div class="overlay-wrapper"></div>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-button slot="end" class="box-none mt-3" style="--background: transparent">
+          <ion-icon name="chevron-back" size="large" class="yellow-dark"></ion-icon>
+        </ion-button>
+      </ion-toolbar>
+    </ion-header>
+    <ion-item class="mt-2 mb-5" lines="none">
+      <ion-icon name="car" slot="start" size="small" class="yellow-dark"></ion-icon>
+      <ion-label>
+        <ul>
+          <li>
+            <h2 class="text-xl yellow-dark">معلومات عامة</h2>
+          </li>
+          <li><span class="text-sm yellow-dark">يمكنك تغيير المعلومات الشخصية عن طريق النقر فوق تغيير المعلومات الشخصية </span></li>
+        </ul>
+      </ion-label>
+    </ion-item>
+
+    <ion-card class="main-card mt-5">
+      <ion-card-content>
+        <form [formGroup]="userInfo" (ngSubmit)="onSubmit()">
+          <ion-list lines="none">
+
+            <ion-item>
+              <ion-label>اسم المستخدم</ion-label>
+              <ion-input type="text" formControlName="username" [disabled]="disabledVar"></ion-input>
+            </ion-item>
+            <ion-item>
+
+              <ion-label>جنس</ion-label>
+              <ion-input type="text" formControlName="gender" [disabled]="disabledVar"></ion-input>
+              <!-- <ion-select placeholder="اختر" formControlName="gender" disabled>
+                <ion-select-option value="female">امرأة</ion-select-option>
+                <ion-select-option value="male">رجل</ion-select-option>
+              </ion-select> -->
+            </ion-item>
+
+            <ion-item>
+              <ion-label>عمر</ion-label>
+              <ion-input type="text" formControlName="age" [disabled]="disabledVar"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>البريد الإلكتروني</ion-label>
+              <ion-input type="email" formControlName="email" [disabled]="disabledVar"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>رقم الهاتف</ion-label>
+              <ion-input type="number" formControlName="phone" [disabled]="disabledVar"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item>
+              <ion-label slot="start">الصوره الشخصيه</ion-label>
+              <ion-icon lazy="true" slot="end" name="image" color="tertiary"></ion-icon>
+              <ion-input type="file" accept="image/*" style="opacity: 0; position: absolute" name="picture"
+                formControlName="picture">
+              </ion-input>
+            </ion-item> -->
+            <ion-item class="mt-5">
+              <ion-button size="large" (click)="disabledVar = !disabledVar" *ngIf="disabledVar">
+                تغيير المعلومات الشخصية
+              </ion-button>
+            </ion-item>
+            <ion-item type="submit" *ngIf="!disabledVar">
+              <ion-button size="large">
+                موافق
+              </ion-button>
+            </ion-item>
+          </ion-list> 
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>

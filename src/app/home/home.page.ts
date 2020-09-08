@@ -6,7 +6,7 @@ import { FirebaseService } from '../services/firebase.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.scss'], 
 })
 export class HomePage implements OnInit{
 
@@ -17,7 +17,7 @@ export class HomePage implements OnInit{
     slidesPerView: 1.4
   }
 
-  currentUser: firebase.User;
+  currentUser= null;
 
   constructor(
     private rideservic:RidesService,
@@ -31,7 +31,7 @@ export class HomePage implements OnInit{
     this.firebaseService.getUserState()
     .subscribe(user => {
       this.currentUser = user
-      console.log(this.currentUser)
+      // console.log(this.currentUser)
     })
     
 

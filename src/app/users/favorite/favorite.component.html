@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true" color="light">
-  
+
   <div class="wrapper">
     <div class="overlay-wrapper"></div>
-    <ion-header  class="ion-no-border">
+    <ion-header class="ion-no-border">
       <ion-toolbar>
-          <ion-button slot="end" class="box-none mt-3" style="--background: transparent">
-            <ion-icon name="chevron-back" size="large" class="yellow-dark"></ion-icon>
-          </ion-button>    
+        <ion-button slot="end" class="box-none mt-3" style="--background: transparent">
+          <ion-icon name="chevron-back" size="large" class="yellow-dark"></ion-icon>
+        </ion-button>
       </ion-toolbar>
     </ion-header>
     <ion-item class="mt-2 mb-5" lines="none">
@@ -14,7 +14,7 @@
       <ion-label>
         <ul>
           <li>
-            <h2 class="text-lg yellow-dark">تفضيلاتي</h2>
+            <h2 class="text-2xl yellow-dark">تفضيلاتي</h2>
           </li>
           <li><span class="text-sm yellow-dark">يمكنك اختيار أي مما يلي تسمح به </span></li>
         </ul>
@@ -23,8 +23,8 @@
 
     <ion-card class="main-card mt-5">
       <ion-card-content>
-        <!-- <ion-card>
-          <ion-card-content> -->
+        <form [formGroup]="userFavorite" (ngSubmit)="onSubmit()">
+          <ion-list>
 
             <ion-item>
               <ion-label>
@@ -32,14 +32,13 @@
               </ion-label>
               <label class="radiobutton_container">
                 <span class="ml-2">نعم</span>
-                <input name="type" type="radio">
+                <input value="1" formControlName="music" type="radio">
                 <span class="radiobutton_mark"></span>
               </label>
-                
+    
               <label class="radiobutton_container mr-3">
                 <span class="ml-2">لا</span>
-                
-                <input name="type" type="radio">
+                <input value="0" formControlName="music" type="radio">
                 <span class="radiobutton_mark mr-5"></span>
               </label>
             </ion-item>
@@ -49,13 +48,13 @@
               </ion-label>
               <label class="radiobutton_container">
                 <span class="ml-2">نعم</span>
-                <input name="type" type="radio">
+                <input value="1" formControlName="smoking" type="radio">
                 <span class="radiobutton_mark"></span>
               </label>
-                
+    
               <label class="radiobutton_container mr-3">
                 <span class="ml-2">لا</span>
-                <input name="type" type="radio">
+                <input value="0" formControlName="smoking" type="radio">
                 <span class="radiobutton_mark mr-5"></span>
               </label>
             </ion-item>
@@ -65,13 +64,13 @@
               </ion-label>
               <label class="radiobutton_container">
                 <span class="ml-2">نعم</span>
-                <input name="type" type="radio">
+                <input value="1" formControlName="chat" type="radio">
                 <span class="radiobutton_mark"></span>
               </label>
-                
+    
               <label class="radiobutton_container mr-3">
                 <span class="ml-2">لا</span>
-                <input name="type" type="radio">
+                <input value="0" formControlName="chat" type="radio">
                 <span class="radiobutton_mark mr-5"></span>
               </label>
             </ion-item>
@@ -81,23 +80,25 @@
               </ion-label>
               <label class="radiobutton_container">
                 <span class="ml-2">نعم</span>
-                <input name="type" type="radio">
+                <input value="1" formControlName="pets" type="radio">
                 <span class="radiobutton_mark"></span>
               </label>
-                
+    
               <label class="radiobutton_container mr-3">
                 <span class="ml-2">لا</span>
-                <input name="type" type="radio">
+                <input value="0" formControlName="pets" type="radio">
                 <span class="radiobutton_mark mr-5"></span>
               </label>
             </ion-item>
-          <!-- </ion-card-content>
-        </ion-card> -->
-        
-       
-       
+            <ion-item lines="none">
+              <ion-button type="submit" size="large">
+                موافق
+              </ion-button>
+            </ion-item>
+          </ion-list>
+      </form>
       </ion-card-content>
     </ion-card>
-    
+
   </div>
 </ion-content>

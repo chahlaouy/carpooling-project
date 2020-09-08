@@ -6,7 +6,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
+  templateUrl: './register.component.html', 
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
   }
   
   onSubmit(){
+    console.log(this.user.value)
     this.authService.createDriver(this.user.value);
   }
 

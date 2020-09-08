@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms'
-import { RidesService } from 'src/app/rides.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,10 +23,10 @@ export class FavoriteComponent implements OnInit {
 
   initializeForm(){
     this.userFavorite = this.fb.group({
-      pets: "",
-      smoking: "",
-      music: "",
-      chat: ""
+      pets: false,
+      smoking: false,
+      music: false,
+      chat: false
     })
   }
   

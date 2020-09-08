@@ -9,7 +9,7 @@ import { FirebaseService } from './services/firebase.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
+  templateUrl: 'app.component.html', 
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private rideservic:RidesService,
     private router: Router,
     private firebaseService: FirebaseService
 
@@ -34,13 +33,20 @@ export class AppComponent implements OnInit {
     this.firebaseService.getUserState()
       .subscribe(user => {
         this.currentUser = user
+        console.log(this.currentUser)
       })
+     
   }
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+    this.statusBar.styleDefault();
+    this.splashScreen.hide();
     });
 
+  }
+
+  onLogout(){
+    this.firebaseService.signOut();
+    this.router.navigate(['/home'])
   }
 }

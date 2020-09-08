@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { FirebaseService } from './services/firebase.service';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { UserServiceService } from './services/user-service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,7 +44,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    FirebaseService
+    FirebaseService,UserServiceService
   ],
   bootstrap: [AppComponent]
 })

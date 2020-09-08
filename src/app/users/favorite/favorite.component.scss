@@ -10,7 +10,9 @@
         border-radius: 20px;
         ion-card{
             box-shadow: none !important;
-        }    
+        }
+        border-bottom-right-radius: 0  !important;    
+        border-bottom-left-radius: 0  !important;    
     }
 }
 

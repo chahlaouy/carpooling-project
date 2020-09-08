@@ -8,11 +8,48 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseService {
+export class FirebaseService { 
 
   isLoggedIn = false;
 
   newDriver: any;
+
+  currentUser: any;
+
+  driverInterface={
+      gender: "",
+      username: "",
+      email: "",
+      picture: "",
+      phone: "",
+      age: "",
+      car:{
+        brand: "",
+        model: "",
+        state: "",
+        serialNumber: ""
+      },
+      favorite:{ 
+        pets: "",
+        smoking: "",
+        music: "",
+        chat: ""
+      },
+      reviews: {
+        authorName: "",
+        authorProfilePicture:"",
+        headLine: "",
+        body: "",
+        rating: ""
+      },
+      trips: {
+        destination: "",
+        source: "",
+        price: "",
+        numberSeats: "",
+        timeToLeave: ""
+      }
+  }
 
   private eventAuthError= new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
@@ -29,6 +66,7 @@ export class FirebaseService {
         this.eventAuthError.next(error)
       }).then(userCredentials => {
         if (userCredentials){
+          this.currentUser = userCredentials.user;
           this.router.navigate(['/home'])
         }
       })
@@ -37,14 +75,14 @@ export class FirebaseService {
     
     await this.angularFireAuth.createUserWithEmailAndPassword(driver.email, driver.password)
       .then(userCredentials => {
-        console.log(userCredentials);
+        // console.log(userCredentials);
         this.newDriver = driver;
         userCredentials.user.updateProfile({
           displayName: driver.username
         })
         this.insertDriverData(userCredentials)
           .then(response => {
-            console.log(response)
+            // console.log(response)
             this.router.navigate(["/user/dashboard"])
           })
       })
@@ -56,18 +94,20 @@ export class FirebaseService {
 
   insertDriverData(userCredentials: firebase.auth.UserCredential){
     return this.db.doc(`users/${userCredentials.user.uid}`).set({
-      role: "driver",
-      gender: "male",
-      username: "",
+      gender: this.newDriver.gender,
+      username: this.newDriver.username,
       email: this.newDriver.email,
-      picture: "",
-      phone: "",
-      age: "29",
+      picture: this.newDriver.picture,
+      phone: this.newDriver.phone,
+      age: this.newDriver.age,
     })
   }
 
   getUserState(){
     return this.angularFireAuth.authState;
+  }
+  getUser(){
+    return this.currentUser;
   }
   signOut(){
     return this.angularFireAuth.signOut();
