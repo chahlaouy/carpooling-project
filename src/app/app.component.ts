@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     this.firebaseService.getUserState()
       .subscribe(user => {
         this.currentUser = user
-        console.log(this.currentUser)
+        // console.log(this.currentUser)
       })
      
   }

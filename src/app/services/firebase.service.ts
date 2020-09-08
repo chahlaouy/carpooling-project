@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth'
-import {  AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+
+import * as firebase from 'firebase'
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseService { 
+export class FirebaseService {
+
+  private uploadTask: firebase.storage.UploadTask;
 
   isLoggedIn = false;
 
@@ -16,74 +20,81 @@ export class FirebaseService {
 
   currentUser: any;
 
-  driverInterface={
-      gender: "",
-      username: "",
-      email: "",
-      picture: "",
-      phone: "",
-      age: "",
-      car:{
-        brand: "",
-        model: "",
-        state: "",
-        serialNumber: ""
-      },
-      favorite:{ 
-        pets: "",
-        smoking: "",
-        music: "",
-        chat: ""
-      },
-      reviews: {
-        authorName: "",
-        authorProfilePicture:"",
-        headLine: "",
-        body: "",
-        rating: ""
-      },
-      trips: {
-        destination: "",
-        source: "",
-        price: "",
-        numberSeats: "",
-        timeToLeave: ""
-      }
+  driverInterface = {
+    gender: "",
+    username: "",
+    email: "",
+    picture: "",
+    phone: "",
+    age: "",
+    car: {
+      brand: "",
+      model: "",
+      state: "",
+      serialNumber: ""
+    },
+    favorite: {
+      pets: "",
+      smoking: "",
+      music: "",
+      chat: ""
+    },
+    reviews: {
+      authorName: "",
+      authorProfilePicture: "",
+      headLine: "",
+      body: "",
+      rating: ""
+    },
+    trips: {
+      destination: "",
+      source: "",
+      price: "",
+      numberSeats: "",
+      timeToLeave: ""
+    }
   }
 
-  private eventAuthError= new BehaviorSubject<string>("");
+  private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
-  
+
   constructor(
     private angularFireAuth: AngularFireAuth,
     private db: AngularFirestore,
     private router: Router
   ) { }
 
-  signIn(email: string, password: string){
+  signIn(email: string, password: string) {
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
       .catch(error => {
         this.eventAuthError.next(error)
       }).then(userCredentials => {
-        if (userCredentials){
+        if (userCredentials) {
           this.currentUser = userCredentials.user;
+          localStorage.setItem('uid', userCredentials.user.uid)
           this.router.navigate(['/home'])
         }
       })
   }
-  async createDriver(driver){
-    
+  async createDriver(driver) {
+
     await this.angularFireAuth.createUserWithEmailAndPassword(driver.email, driver.password)
       .then(userCredentials => {
-        // console.log(userCredentials);
+
         this.newDriver = driver;
+        localStorage.setItem('uid', userCredentials.user.uid)
         userCredentials.user.updateProfile({
           displayName: driver.username
         })
         this.insertDriverData(userCredentials)
           .then(response => {
-            // console.log(response)
             this.router.navigate(["/user/dashboard"])
+          })
+        firebase.storage().ref(`users/${userCredentials.user.uid}/profile.png`).put(driver.picture)
+          .then(rep =>{
+            console.log(rep)
+          }).catch(error => {
+            console.log(error)
           })
       })
       .catch(error => {
@@ -92,7 +103,7 @@ export class FirebaseService {
       })
   }
 
-  insertDriverData(userCredentials: firebase.auth.UserCredential){
+  insertDriverData(userCredentials: firebase.auth.UserCredential) {
     return this.db.doc(`users/${userCredentials.user.uid}`).set({
       gender: this.newDriver.gender,
       username: this.newDriver.username,
@@ -103,14 +114,16 @@ export class FirebaseService {
     })
   }
 
-  getUserState(){
+  getUserState() {
     return this.angularFireAuth.authState;
   }
-  getUser(){
+  getUser() {
     return this.currentUser;
   }
-  signOut(){
-    return this.angularFireAuth.signOut();
+  signOut() {
+    return this.angularFireAuth.signOut().then(() => {
+      localStorage.removeItem("uid")
+    });
   }
 
 
@@ -123,7 +136,7 @@ export class FirebaseService {
 
 
 
-  
+
   // async signUp(email: string, password: string){
   //   await this.angularFireAuth.createUserWithEmailAndPassword(email, password)
   //     .then(response => {

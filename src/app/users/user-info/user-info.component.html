@@ -4,7 +4,7 @@
     <div class="overlay-wrapper"></div>
     <ion-header class="ion-no-border">
       <ion-toolbar>
-        <ion-button slot="end" class="box-none mt-3" style="--background: transparent">
+        <ion-button slot="end" class="box-none mt-3" style="--background: transparent" [routerLink]="['/user/dashboard']">
           <ion-icon name="chevron-back" size="large" class="yellow-dark"></ion-icon>
         </ion-button>
       </ion-toolbar>
@@ -23,36 +23,34 @@
 
     <ion-card class="main-card mt-5">
       <ion-card-content>
-        <form [formGroup]="userInfo" (ngSubmit)="onSubmit()">
-          <ion-list lines="none">
-
+          <ion-list lines="none" *ngIf="currentUser">
             <ion-item>
               <ion-label>اسم المستخدم</ion-label>
-              <ion-input type="text" formControlName="username" [disabled]="disabledVar"></ion-input>
+              <ion-input type="text" value="{{currentUser.username}}" [disabled]="disabledVar"></ion-input>
             </ion-item>
             <ion-item>
 
               <ion-label>جنس</ion-label>
-              <ion-input type="text" formControlName="gender" [disabled]="disabledVar"></ion-input>
-              <!-- <ion-select placeholder="اختر" formControlName="gender" disabled>
+              <ion-input type="text" value="{{currentUser.gender}}" [disabled]="disabledVar" *ngIf="disabledVar"></ion-input>
+              <ion-select placeholder="اختر" *ngIf="!disabledVar">
                 <ion-select-option value="female">امرأة</ion-select-option>
                 <ion-select-option value="male">رجل</ion-select-option>
-              </ion-select> -->
+              </ion-select>
             </ion-item>
 
             <ion-item>
               <ion-label>عمر</ion-label>
-              <ion-input type="text" formControlName="age" [disabled]="disabledVar"></ion-input>
+              <ion-input type="text" value="{{currentUser.age}}" [disabled]="disabledVar"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label>البريد الإلكتروني</ion-label>
-              <ion-input type="email" formControlName="email" [disabled]="disabledVar"></ion-input>
+              <ion-input type="email" value="{{currentUser.email}}" [disabled]="disabledVar"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label>رقم الهاتف</ion-label>
-              <ion-input type="number" formControlName="phone" [disabled]="disabledVar"></ion-input>
+              <ion-input type="number" value="{{currentUser.phone}}" [disabled]="disabledVar"></ion-input>
             </ion-item>
 
             <!-- <ion-item>
@@ -67,13 +65,12 @@
                 تغيير المعلومات الشخصية
               </ion-button>
             </ion-item>
-            <ion-item type="submit" *ngIf="!disabledVar">
+            <ion-item  *ngIf="!disabledVar">
               <ion-button size="large">
                 موافق
               </ion-button>
             </ion-item>
           </ion-list> 
-        </form>
       </ion-card-content>
     </ion-card>
 

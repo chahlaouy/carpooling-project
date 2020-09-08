@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms'
-import { RidesService } from 'src/app/rides.service';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
@@ -41,6 +40,11 @@ export class RegisterComponent implements OnInit {
     })
   }
   
+  getImage(e){
+    this.user.value.picture = e.target.files[0];
+    console.log(this.user.value.picture);
+  }
+
   onSubmit(){
     console.log(this.user.value)
     this.authService.createDriver(this.user.value);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
+import { UserServiceService } from 'src/app/services/user-service.service';
 @Component({
   selector: 'app-user-car',
   templateUrl: './user-car.component.html',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
 export class UserCarComponent implements OnInit {
 
   userCar: FormGroup;
+
+  currentCar= null;
 
   brands= [
     {label: 'كيا', array: ['اوبتيما','سيراتو','كادينزا', 'سبورتاج','ريو','بيكانتو','كرنفال']},
@@ -35,11 +38,15 @@ export class UserCarComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router:Router
+    private router:Router,
+    private userService: UserServiceService
   ) { }
  
   ngOnInit() {
-    this.initializeForm()
+    this.initializeForm();
+    this.userService.getCurrentsUserInfo().subscribe(a=>{
+      this.currentCar = a.data().userCar;
+     });
   }
 
   initializeForm(){
@@ -52,7 +59,6 @@ export class UserCarComponent implements OnInit {
   }
 
   changeBrand(e){
-    console.log(e.target.value)
     this.userCar.value.brand=e.target.value;
     this.brands.forEach(item => {
       if (item.label === e.target.value){
@@ -60,15 +66,14 @@ export class UserCarComponent implements OnInit {
       }
     })
   }
-  // changeModel(e){
-  //   this.userCar.value.model=e.target.value
-  // }
-  // changeState(e){
-  //   this.userCar.value.state=e.target.value
-  // }
 
   onSubmit(){
-    console.log(this.userCar.value)
+    this.userService.addCar(this.userCar.value)
+    .then(response => {
+      this.ngOnInit()
+    }).catch(error => {
+      console.log(error)
+    })
   }
   
 }

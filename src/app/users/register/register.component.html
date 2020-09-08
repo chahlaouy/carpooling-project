@@ -18,7 +18,7 @@
       <ion-card-header>
         <ion-card-title>انشاء حساب جديد</ion-card-title>
         <ion-card-subtitle>الرجاء إدخال بيانات الاعتماد الخاصة بك</ion-card-subtitle>
-
+        {{authError}}
       </ion-card-header>
       <ion-card-content>
         <ion-list line="none">
@@ -54,7 +54,7 @@
           <ion-item>
             <ion-label slot="start">الصوره الشخصيه</ion-label>
             <ion-icon lazy="true" slot="end" name="image" color="tertiary"></ion-icon>
-            <ion-input type="file" accept="image/*" style="opacity: 0; position: absolute" name="picture" formControlName="picture">
+            <ion-input type="file" accept="image/*" style="opacity: 0; position: absolute" name="picture" formControlName="picture" (change)="getImage($event)">
             </ion-input>
           </ion-item>
   

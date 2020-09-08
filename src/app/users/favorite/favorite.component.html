@@ -4,7 +4,7 @@
     <div class="overlay-wrapper"></div>
     <ion-header class="ion-no-border">
       <ion-toolbar>
-        <ion-button slot="end" class="box-none mt-3" style="--background: transparent">
+        <ion-button slot="end" class="box-none mt-3" style="--background: transparent" [routerLink]="['/user/dashboard']">
           <ion-icon name="chevron-back" size="large" class="yellow-dark"></ion-icon>
         </ion-button>
       </ion-toolbar>
@@ -23,9 +23,36 @@
 
     <ion-card class="main-card mt-5">
       <ion-card-content>
+        <ion-list *ngIf="currentFavorite">
+          <ion-item lines="none">
+            <h1 class="text-lg my-5">اختياراتك الحالية</h1>
+          </ion-item>
+          <ion-item>
+            <ion-label>موسيقى</ion-label>
+            <ion-label *ngIf="currentFavorite.music==1">نعم</ion-label>
+            <ion-label *ngIf="currentFavorite.music==0">لا</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>التدخين</ion-label>
+            <ion-label *ngIf="currentFavorite.smoking==1">نعم</ion-label>
+            <ion-label *ngIf="currentFavorite.smoking==0">لا</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>الحيوانات الأليفة</ion-label>
+            <ion-label *ngIf="currentFavorite.pets==1">نعم</ion-label>
+            <ion-label *ngIf="currentFavorite.pets==0">لا</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>دردشة</ion-label>
+            <ion-label *ngIf="currentFavorite.chat==1">نعم</ion-label>
+            <ion-label *ngIf="currentFavorite.chat==0">لا</ion-label>
+          </ion-item>
+          <ion-item class="my-5" lines="none">
+            <h1 class="text-lg"> يمكنك التغيير أدناه</h1>
+          </ion-item>
+        </ion-list>
         <form [formGroup]="userFavorite" (ngSubmit)="onSubmit()">
           <ion-list>
-
             <ion-item>
               <ion-label>
                 موسيقى
