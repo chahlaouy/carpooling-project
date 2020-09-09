@@ -27,6 +27,16 @@
         h3.title{
             color: #f5cd50
         }
+        ion-card.card-img{
+            // box-shadow:none !important;
+            background: #f2f2f2;
+            ion-card-content{
+                padding: 0 ;
+            }
+            img{
+                border-radius: 5px;
+            }
+        }
     }
     ion-card.one{
         position: relative;

@@ -51,54 +51,60 @@
           </ion-item>
         </ion-list> -->
 
+        <ion-menu-toggle>
 
-        <ion-list lines="none" class="menu-items">
-          <ion-item button class="active" [routerLink]="['/user/dashboard']">
-            لوحتي
-            <ion-icon name="apps" slot="start"></ion-icon>
-          </ion-item>
-          <ion-item button [routerLink]="['/user/requests']">
-            الحجوزات
-            <ion-icon name="bookmarks" slot="start"></ion-icon>
-          </ion-item>
-          <ion-item button [routerLink]="['/user/dashboard']">
-            اضف رحلة
-            <ion-icon name="add-circle" slot="start"></ion-icon>
-          </ion-item>
-          <ion-item button [routerLink]="['/user/box']">
-            صندوق الرسائل
-            <ion-icon name="chatbubble" slot="start"></ion-icon>
-          </ion-item>
-          <ion-item  button [routerLink]="['/user/favorite']">
-            تفضيلاتي
-            <ion-icon name="heart" slot="start"></ion-icon>
-          </ion-item>
-          <ion-item button [routerLink]="['/user/car']">
-            سيارتي
-            <ion-icon name="car-sport" slot="start"></ion-icon>
-          </ion-item>
-          <ion-item  (click)="onLogout()">
-            تسجيل خروج
-            <ion-icon name="exit" slot="start"></ion-icon>
-          </ion-item>
-        </ion-list>
+          <ion-list lines="none" class="menu-items">
+            <ion-item button class="active" [routerLink]="['/user/dashboard']">
+              لوحتي
+              <ion-icon name="apps" slot="start"></ion-icon>
+            </ion-item>
+            <ion-item button [routerLink]="['/user/requests']">
+              الحجوزات
+              <ion-icon name="bookmarks" slot="start"></ion-icon>
+            </ion-item>
+            <ion-item button [routerLink]="['/user/dashboard']">
+              اضف رحلة
+              <ion-icon name="add-circle" slot="start"></ion-icon>
+            </ion-item>
+            <ion-item button [routerLink]="['/user/box']">
+              صندوق الرسائل
+              <ion-icon name="chatbubble" slot="start"></ion-icon>
+            </ion-item>
+            <ion-item  button [routerLink]="['/user/favorite']">
+              تفضيلاتي
+              <ion-icon name="heart" slot="start"></ion-icon>
+            </ion-item>
+            <ion-item button [routerLink]="['/user/car']">
+              سيارتي
+              <ion-icon name="car-sport" slot="start"></ion-icon>
+            </ion-item>
+            <ion-item  (click)="onLogout()">
+              تسجيل خروج
+              <ion-icon name="exit" slot="start"></ion-icon>
+            </ion-item>
+          </ion-list>
+        </ion-menu-toggle>
       </div>
       <div *ngIf="currentUser === null"> 
         <ion-card class="bg-blue-600">
           <ion-card-header>
-            <ion-card-title class="grey-100">
+            <ion-card-title class="grey-100 text-lg">
               انت لست مسجلا بعد
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-item [routerLink]="['/register']">
-              <ion-label class="grey-100">عضو جديد</ion-label>
-              <ion-icon name="person-add-outline" class="grey-100"></ion-icon>
-            </ion-item>
-            <ion-item [routerLink]="['/login']">
-              <ion-label class="grey-100">تسجيل الدخول</ion-label>
-              <ion-icon name="log-in-outline" class="grey-100"></ion-icon>
-            </ion-item>
+            <ion-menu-toggle>
+              <ion-item [routerLink]="['/register']" >
+                <ion-label class="grey-100">عضو جديد</ion-label>
+                <ion-icon name="person-add-outline" class="grey-100"></ion-icon>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle>
+              <ion-item [routerLink]="['/login']">
+                <ion-label class="grey-100">تسجيل الدخول</ion-label>
+                <ion-icon name="log-in-outline" class="grey-100"></ion-icon>
+              </ion-item>
+            </ion-menu-toggle>
           </ion-card-content>
         </ion-card>
       </div>

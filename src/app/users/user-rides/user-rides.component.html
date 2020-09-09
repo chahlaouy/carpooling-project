@@ -1,3 +1,50 @@
-<p>
+<!-- <p>
   user-rides works!
-</p>
+  cd "C:\Program Files\Oracle\Virtualbox"
+  VBoxManage setextradata “Mac OS Mojave” VBoxInternal2/EfiGraphicsResolution 1024x768
+</p> -->
+<ion-content [fullscreen]="true" color="light">
+
+  <div class="wrapper">
+    <div class="overlay-wrapper"></div>
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-button slot="end" class="box-none mt-3" style="--background: transparent" [routerLink]="['/user/dashboard']">
+          <ion-icon name="chevron-back" size="large" class="yellow-dark"></ion-icon>
+        </ion-button>
+      </ion-toolbar>
+    </ion-header>
+    <ion-item class="mt-2 mb-5" lines="none">
+      <ion-icon name="car-sport-outline" slot="start" size="small" class="yellow-dark"></ion-icon>
+      <ion-label>
+        <ul>
+          <li>
+            <h2 class="text-xl yellow-dark">الرحلات</h2>
+          </li>
+          <li><span class="text-sm yellow-dark">صفحة الرحلات</span></li>
+        </ul>
+      </ion-label>
+    </ion-item>
+
+    <ion-card class="main-card mt-5">
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label>
+              <h1 class="text-lg grey-900">لا يوجد رحلات بعد</h1>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-button>
+              <ion-label>
+                اضف رحلة
+              </ion-label>
+              <ion-icon name="add-circle-outline" slot="end"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>

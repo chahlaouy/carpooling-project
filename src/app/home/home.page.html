@@ -18,10 +18,44 @@
     </ion-header>
     <ion-card class="main-card">
       <ion-card-header>
+        <ion-card-title class="grey-100">
+          انت راحل من جدة !!!
+        </ion-card-title>
+        <ion-card-subtitle class="yellow-600">
+          حدد المدينة لحجز رحلتك
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card class="card-img">
+        <ion-card-content>
+          <img src="../../assets/Jeddah.jpg">
+          <ion-item lines="none">
+            <ion-icon name="pin-outline" slot="start" size="small" class="yellow-600"></ion-icon>
+            <ion-label> Erriadh : <span class="yellow-600">11:30</span></ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="card-img">
+        <ion-card-content>
+          <img src="../../assets/erriadh.jpg">
+          <ion-item lines="none">
+            <ion-icon name="pin-outline" slot="start" size="small" class="yellow-600"></ion-icon>
+            <ion-label> Taif : <span class="yellow-600">12:30</span></ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="card-img">
+        <ion-card-content>
+          <img src="../../assets/erriadh.jpg">
+          <ion-item lines="none">
+            <ion-icon name="pin-outline" slot="start" size="small" class="yellow-600"></ion-icon>
+            <ion-label> KAEC : <span class="yellow-600">14:30</span></ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <ion-card-header>
         <h3 class="title">أحدث الإعلانات</h3>
       </ion-card-header>
       <ion-card-content class="card-content-no-padding">
-
         <ion-slides [options]="sliderConfig">
           <ion-slide *ngFor="let ride of rides">
             <ion-card class="one">

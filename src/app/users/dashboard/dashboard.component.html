@@ -20,7 +20,7 @@
           </ion-col>
 
           <ion-col class="flex">
-            <ion-button size="large">
+            <ion-button size="large" [routerLink]="['/user/rides']">
               أضف رحلة الآن
             </ion-button>
           </ion-col>
@@ -43,7 +43,7 @@
 
                 <ion-col>
                   <div class="flex justify-center items-center">
-                    <ion-fab-button color="light" type="button">
+                    <ion-fab-button color="light" type="button" [routerLink]="['/user/info']">
                       <ion-icon name="person" color="primary"></ion-icon>
                     </ion-fab-button>
                   </div>
@@ -62,7 +62,7 @@
                 <ion-col>
 
                   <div class="flex justify-center items-center">
-                    <ion-fab-button color="light" type="button">
+                    <ion-fab-button color="light" type="button" [routerLink]="['/user/car']">
                       <ion-icon name="car-sport" class="pink"></ion-icon>
                     </ion-fab-button>
                   </div>
@@ -76,7 +76,7 @@
 
                 <ion-col>
                   <div class="flex justify-center items-center">
-                    <ion-fab-button color="light" type="button">
+                    <ion-fab-button color="light" type="button" [routerLink]="['/user/reviews']">
                       <ion-icon name="document-text" class="blue-light"></ion-icon>
                     </ion-fab-button>
                   </div>
@@ -120,7 +120,7 @@
                 </ion-col>
                 <ion-col>
                   <div class="flex justify-center items-center">
-                    <ion-fab-button color="light" type="button">
+                    <ion-fab-button color="light" type="button" [routerLink]="['/user/rides']">
                       <ion-icon name="car-sport-outline" class="blue-600"></ion-icon>
                     </ion-fab-button>
                   </div>
@@ -129,11 +129,20 @@
                 </ion-col>
                 <ion-col>
                   <div class="flex justify-center items-center">
-                    <ion-fab-button color="light" type="button">
+                    <ion-fab-button color="light" type="button" [routerLink]="['/user/box']">
                       <ion-icon name="chatbubble-outline" class="yellow-600"></ion-icon>
                     </ion-fab-button>
                   </div>
                   <h3>صندوق الرسائل</h3>
+                  
+                </ion-col>
+                <ion-col>
+                  <div class="flex justify-center items-center">
+                    <ion-fab-button color="light" type="button" [routerLink]="['/home']">
+                      <ion-icon name="home" class="yellow-600"></ion-icon>
+                    </ion-fab-button>
+                  </div>
+                  <h3> الصفحة الريسية</h3>
                   
                 </ion-col>
               </ion-row>
