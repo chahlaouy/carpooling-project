@@ -22,6 +22,7 @@ import { FirebaseService } from './services/firebase.service';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { UserServiceService } from './services/user-service.service';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,10 @@ import { UserServiceService } from './services/user-service.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDK_H25782ntfx8P1phlMxs1KngoieEaYw',
+      libraries: ['places']
+    })
 
   ],
   providers: [

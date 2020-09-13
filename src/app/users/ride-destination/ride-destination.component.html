@@ -1,0 +1,26 @@
+<ion-header >
+  <ion-toolbar>
+      <input placeholder="Filter Schedules" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+
+  <!-- <div #map id="map"></div> -->
+  <agm-map 
+  [latitude]="latitude" 
+  [longitude]="longitude" 
+  [zoom]="zoom" >
+    <agm-marker 
+    [latitude]="latitude"  [markerDraggable]="true"
+    [longitude]="longitude" (dragEnd)="markerDragEnd($event)"></agm-marker>
+  </agm-map>
+  <h5>Address: {{address}}</h5>
+  <div>Latitude: {{latitude}}</div>
+  <div>Longitude: {{longitude}}</div>
+  <ion-fab>
+    <ion-fab-button class="flex-row" (click)="nextStepNumberOfSeats()">
+      <ion-icon name="arrow-forward-outline" size="large" ></ion-icon>
+    </ion-fab-button> 
+  </ion-fab>
+</ion-content> 

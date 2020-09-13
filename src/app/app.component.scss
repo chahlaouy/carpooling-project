@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
 ion-app {
-    --ion-background-color: transparent !important;
+    // --ion-background-color: transparent !important;
     direction: rtl;
-    --ion-font-family: 'Tajawal', sans-serif;
+    --ion-font-family: 'Tajawal', sans-serif; 
 }
+
 .alert-wrapper{
     --background: #fff;
 }

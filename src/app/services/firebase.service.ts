@@ -5,7 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
-import * as firebase from 'firebase'
+// import * as firebase from 'firebase'
 
 @Injectable({
   providedIn: 'root'
@@ -90,12 +90,12 @@ export class FirebaseService {
           .then(response => {
             this.router.navigate(["/user/dashboard"])
           })
-        firebase.storage().ref(`users/${userCredentials.user.uid}/profile.png`).put(driver.picture)
-          .then(rep =>{
-            console.log(rep)
-          }).catch(error => {
-            console.log(error)
-          })
+        // firebase.storage().ref(`users/${userCredentials.user.uid}/profile.png`).put(driver.picture)
+        //   .then(rep =>{
+        //     console.log(rep)
+        //   }).catch(error => {
+        //     console.log(error)
+        //   })
       })
       .catch(error => {
         console.log(error)
