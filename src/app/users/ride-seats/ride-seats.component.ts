@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user-service.service';
-
 @Component({
   selector: 'app-ride-seats',
   templateUrl: './ride-seats.component.html',
@@ -8,18 +8,19 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class RideSeatsComponent implements OnInit {
 
+  numberOfSeats: any;
   constructor(
     private userSer: UserServiceService,
+    private router: Router
   ) { }
 
+
   ngOnInit() {
-    // this.userSer.getDistance(
-    //   this.userSer.getRideSource(), this.userSer.getRideDestination()
-    // )
-    // console.log('/////////////////////////////////')
-    // console.log(this.userSer.getRideSource());
-    // console.log(this.userSer.getRideDestination());
-    console.log(this.userSer.getRideDetails())
   }
 
+  nextStepRidePrice(){
+    console.log(this.numberOfSeats);
+    this.userSer.setNumberOfSeats(this.numberOfSeats);
+    this.router.navigate(['add/ride-price']);
+  }
 }

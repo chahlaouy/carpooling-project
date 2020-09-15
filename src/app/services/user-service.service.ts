@@ -3,6 +3,8 @@ import {  AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { FirebaseService } from './firebase.service';
 import { MapsAPILoader } from '@agm/core';
+import { resolve } from 'dns';
+import { rejects } from 'assert';
 
   // origin1 = { lat: 55.930, lng: -3.118 };
   // origin2 = 'Greenwich, England';
@@ -18,8 +20,14 @@ export class UserServiceService {
   private rideDestination: any;
   private rideNumberOfSeats: any;
   private rideCost: any;
-  private rideDistance: any;
-  private rideAverageDuration: any;
+  private rideDistance: {
+    text: any,
+    value: any
+  };
+  private rideAverageDuration: {
+    text: any,
+    value: any
+  };
 
   constructor(
     private db: AngularFirestore,
@@ -61,14 +69,15 @@ getCurrentsUserInfo(){
   }
   setRideDestination(destination){
     this.rideDestination = destination;
+    this.getDistance();
   }
 
   setNumberOfSeats(seats){
     this.rideNumberOfSeats = seats;
   }
 
-  async getRideDetails(){
-    let rideDetails= {
+  getRideDetails(){
+    return {
       rideSource: this.rideSource,
       rideDestination: this.rideDestination,
       rideNumberOfSeats: this.rideNumberOfSeats,
@@ -76,29 +85,32 @@ getCurrentsUserInfo(){
       rideCost: this.rideCost,
       rideAverageDuration: this.rideAverageDuration
     }
-     await this.getDistance();
-
-    return rideDetails;
   }
 
   getDistance() {
     this.mapsAPILoader.load().then(() => {
       let service = new google.maps.DistanceMatrixService;
-       service.getDistanceMatrix({
-        origins: [{lat: this.rideSource.lat, lng:this.rideSource.lng}],
-        destinations: [{lat: this.rideDestination.lat, lng:this.rideDestination.lng}],
+      service.getDistanceMatrix({
+        origins: [{ lat: this.rideSource.lat, lng: this.rideSource.lng }],
+        destinations: [{ lat: this.rideDestination.lat, lng: this.rideDestination.lng }],
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
         avoidTolls: false,
         travelMode: google.maps.TravelMode.DRIVING,
       }, (resp, status) => {
         if (status !== 'OK') {
-          alert('Error was: ' + status)
+          alert('Error was: ' + status);
         } else {
-          this.rideDistance = resp.rows[0].elements[0].distance.text;
-          this.rideAverageDuration = resp.rows[0].elements[0].duration.text
-          console.log("/////////////////////////////")
-          console.log( this.rideDistance, this.rideAverageDuration)
+          this.rideDistance= {
+            text: resp.rows[0].elements[0].distance.text,
+            value: resp.rows[0].elements[0].distance.value
+          }
+          this.rideAverageDuration= {
+            text: resp.rows[0].elements[0].duration.text,
+            value: resp.rows[0].elements[0].duration.value
+          }
+          console.log("/////////////////////////////");
+          console.log(this.rideDistance, this.rideAverageDuration);
         }
       })
     })
