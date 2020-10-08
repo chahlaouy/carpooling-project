@@ -11,14 +11,18 @@ export class RidePriceComponent implements OnInit {
 
 
   ridePrice: any;
-  permittedRidePrice: [];
+  next = false;
+  minPermittedPrice: any;
+  maxPermittedPrice: any;
+  rideSource: any;
+  rideDestination: any;
   rideDistance= this.userSer.getRideDetails().rideDistance.value;
-
+  rideAverageDuration : any;
+  rideDistanceText : any;
   lessThan100Km = (this.rideDistance/1000) < 100;
   between100And200Km = (this.rideDistance/1000) > 100 && (this.rideDistance/1000) < 200;
   between200And300Km = (this.rideDistance/1000) > 200 && (this.rideDistance/1000) < 300;
-  between300And400Km = (this.rideDistance/1000) >= 300 && (this.rideDistance/1000) < 400;
-  between400And700Km = (this.rideDistance/1000) >= 400 && (this.rideDistance/1000) < 700;
+  between300And700Km = (this.rideDistance/1000) >= 300 && (this.rideDistance/1000) < 700;
   moreThan700Km = (this.rideDistance/1000) >= 700;
   
 
@@ -29,18 +33,71 @@ export class RidePriceComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getPermittedPrice();
-    console.log(this.lessThan100Km, this.between100And200Km, this.between200And300Km, this.between300And400Km, this.between400And700Km, this.moreThan700Km)
+    this.getPermittedPrices();
+    this.rideSource = this.userSer.getRideDetails().rideSource.address;
+    this.rideDestination = this.userSer.getRideDetails().rideDestination.address;
+    this.rideAverageDuration = this.userSer.getRideDetails().rideAverageDuration.text;
+    this.rideDistanceText = this.userSer.getRideDetails().rideDistance.text
   }
 
-  getPermittedPrice(){
-    // switch ((this.rideDistance/100)){
-    //   case < 
-    // }
+  priceChange(){
+    this.next = this.betweenRange(this.ridePrice, this.minPermittedPrice, this.maxPermittedPrice)
+    console.log()
+  }
+
+  betweenRange(val, min, max){
+    if ((val >= min) && (val <= max)) {
+      return true;
+    }
+  }
+
+  getPermittedPrices(){
+    if ( this.lessThan100Km ){
+      let priceInRiyal = (this.rideDistance/1000) / 2;
+      let percentPriceInriyal = (priceInRiyal*20) / 100
+      let minPrice = priceInRiyal - percentPriceInriyal;
+      let maxPrice = priceInRiyal + percentPriceInriyal;
+      this.minPermittedPrice = Math.round(minPrice);
+      this.maxPermittedPrice = Math.round(maxPrice);
+    }
+
+    if ( this.between100And200Km ){
+      let priceInRiyal = (this.rideDistance/1000) / 2.5 ;
+      let percentPriceInriyal = (priceInRiyal*20) / 100
+      let minPrice = priceInRiyal - percentPriceInriyal;
+      let maxPrice = priceInRiyal + percentPriceInriyal;
+      this.minPermittedPrice = Math.round(minPrice);
+      this.maxPermittedPrice = Math.round(maxPrice);
+    }
+
+    if ( this.between200And300Km ){
+      let priceInRiyal = (this.rideDistance/1000) / 2.8571;
+      let percentPriceInriyal = (priceInRiyal*20)/100
+      let minPrice = priceInRiyal - percentPriceInriyal;
+      let maxPrice = priceInRiyal + percentPriceInriyal;
+      this.minPermittedPrice = Math.round(minPrice);
+      this.maxPermittedPrice = Math.round(maxPrice);
+    }
+
+    if ( this.between300And700Km ){
+      let priceInRiyal = (this.rideDistance/1000) / 3.3333;
+      let percentPriceInriyal = (priceInRiyal*20) / 100
+      let minPrice = priceInRiyal - percentPriceInriyal;
+      let maxPrice = priceInRiyal + percentPriceInriyal;
+      this.minPermittedPrice = Math.round(minPrice);
+      this.maxPermittedPrice = Math.round(maxPrice);
+    }
+    if ( this.moreThan700Km ){
+      let priceInRiyal = (this.rideDistance/1000) / 4;
+      let percentPriceInriyal = (priceInRiyal*20) / 100
+      let minPrice = priceInRiyal - percentPriceInriyal;
+      let maxPrice = priceInRiyal + percentPriceInriyal;
+      this.minPermittedPrice = Math.round(minPrice);
+      this.maxPermittedPrice = Math.round(maxPrice);
+    }
   }
   nextStep(){
     this.userSer.setNumberOfSeats(this.ridePrice);
     console.log(this.userSer.getRideDetails().rideDistance.value);
-    // this.router.navigate(['add/ride-price']);
   }
 }

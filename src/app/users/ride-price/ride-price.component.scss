@@ -3,13 +3,20 @@ ion-toolbar{
 }
 
 ion-fab{
-    position: fixed;
-    bottom: 1rem;
-    left: 40%;
     ion-fab-button{
         width: 5rem;
         height: 5rem;
         --border-radius: 1rem;
         --background: #3932c0;
+    }
+}
+.permitted-price{
+    background-color: #f2f2f2;
+    box-shadow: 10px 15px 15px #ccc;
+    .header{
+        background-color: rgb(255, 45, 45);
+        ion-label{
+            color: #fff;
+        }
     }
 }

@@ -642,7 +642,17 @@ ul{
    flex-direction: row !important;
  }
 
- bg-primary-blue{
+ .bg-primary-blue{
   background: linear-gradient(90deg, #6370ff 0%, #3932c0 100%);
  }
+
+ .font-bold{
+   font-weight: bold;
+ }
+ .font-bolder{
+   font-weight: bolder;
+ }
+ .bg-white{
+  background: #fff !important;
+}
 

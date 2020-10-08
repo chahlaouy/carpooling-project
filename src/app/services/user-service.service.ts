@@ -3,8 +3,6 @@ import {  AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { FirebaseService } from './firebase.service';
 import { MapsAPILoader } from '@agm/core';
-import { resolve } from 'dns';
-import { rejects } from 'assert';
 
   // origin1 = { lat: 55.930, lng: -3.118 };
   // origin2 = 'Greenwich, England';

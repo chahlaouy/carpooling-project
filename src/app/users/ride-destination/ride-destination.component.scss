@@ -1,6 +1,14 @@
 ion-toolbar{
-    background: #3932c0;
+    background: #fff;
+    border: 1px solid #3932c0;
+    input{
+        border: none;
+        padding: 12px;
+        width: 100%;
+        outline: none;
+    }
 }
+
 
 agm-map {
     height: 100%;
