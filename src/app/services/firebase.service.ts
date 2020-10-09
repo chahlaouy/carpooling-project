@@ -118,7 +118,7 @@ export class FirebaseService {
     return this.angularFireAuth.authState;
   }
   getUser() {
-    return this.currentUser;
+    return this.db.collection('users').doc(localStorage.getItem('uid')).ref.get()
   }
   signOut() {
     return this.angularFireAuth.signOut().then(() => {

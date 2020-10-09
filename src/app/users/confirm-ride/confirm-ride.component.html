@@ -1,7 +1,7 @@
 <ion-header >
   <ion-toolbar>
     <ion-title class="grey-100">
-      صفحة التسعير 
+      تأكيد الرحلة 
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,7 +16,7 @@
       </ion-label>
     </ion-item>
     <ion-item class="pt-2 font-bold" lines="none" dir="ltr">
-      {{rideSource}}
+      {{rideInfo.rideSource.address}}
     </ion-item>
   
     <ion-item class="pt-2" >
@@ -26,7 +26,7 @@
       </ion-label>
     </ion-item>
     <ion-item class="pt-2 font-bold" lines="none" dir="ltr">
-      {{rideDestination}}
+      {{rideInfo.rideDestination.address}}
     </ion-item>
 
     <ion-item class="pt-2" >
@@ -36,7 +36,7 @@
       </ion-label>
     </ion-item>
     <ion-item class="pt-2 font-bold" lines="none" dir="ltr">
-      {{rideDistanceText}}
+      {{rideInfo.rideDistance.text}}
     </ion-item>
 
     <ion-item class="pt-2">
@@ -46,55 +46,34 @@
       </ion-label>
     </ion-item>
     <ion-item class="pt-2 font-bold" lines="none" dir="ltr">
-      {{rideAverageDuration}}
+      {{rideInfo.rideAverageDuration.text}}
     </ion-item>
 
-    <div class="permitted-price mt-5" >
-      <ion-item class="header">
-        <!-- *ngIf="isPriceValid" -->
-        <ion-icon name="cash-outline" color="light" slot="start"></ion-icon>
-        <ion-label>
-          السعر المسموح للفرد 
-        </ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>
-          من
-        </ion-label>
-        <ion-label>
-          {{minPermittedPrice}} RSA
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          إلى
-        </ion-label>
-        <ion-label>{{maxPermittedPrice}} RSA</ion-label>
-      </ion-item>
-
-      <ion-item lines="none">
-        للمزيد من المعلومات انقر هنا
-      </ion-item>
-    </div>
-
-    <ion-item lines="none" class="pt-5">
-      <ion-label style="color:rgb(255, 45, 45)">
-        أدخل السعر بالريال
+    <ion-item class="pt-2">
+      <ion-icon name="people-outline" color="tertiary" slot="start"></ion-icon>
+      <ion-label>
+        عدد المقاعد 
       </ion-label>
+    </ion-item>
+    <ion-item class="pt-2 font-bold" lines="none" dir="ltr">
+      {{rideInfo.rideNumberOfSeats}}
+    </ion-item>
+
+    <ion-item class="pt-2">
+      <ion-icon name="cash-outline" color="tertiary" slot="start"></ion-icon>
+      <ion-label>
+        السعر  
+      </ion-label>
+    </ion-item>
+    <ion-item class="pt-2 font-bold" lines="none" dir="ltr">
+      {{rideInfo.ridePrice}} RSA
     </ion-item>
     
-    <ion-item class="pb-5">
-      <ion-label>
-        أدخل السعر
-      </ion-label>
-      <ion-input [(ngModel)]="ridePrice" type="number" (ionChange)="priceChange()"></ion-input>
-    </ion-item>
   </ion-list>
-  <div class="flex item-center justify-center mt-5" *ngIf="next">
+  <div class="flex item-center justify-end mt-5">
     <ion-fab>
-      <ion-fab-button class="flex-row" (click)="nextStep()">
-        <ion-icon name="arrow-forward-outline" size="large" ></ion-icon>
+      <ion-fab-button class="flex-row" (click)="confirmRide()">
+        تأكيد
       </ion-fab-button> 
     </ion-fab>
   </div>

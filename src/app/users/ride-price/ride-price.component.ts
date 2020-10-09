@@ -42,7 +42,6 @@ export class RidePriceComponent implements OnInit {
 
   priceChange(){
     this.next = this.betweenRange(this.ridePrice, this.minPermittedPrice, this.maxPermittedPrice)
-    console.log()
   }
 
   betweenRange(val, min, max){
@@ -87,6 +86,7 @@ export class RidePriceComponent implements OnInit {
       this.minPermittedPrice = Math.round(minPrice);
       this.maxPermittedPrice = Math.round(maxPrice);
     }
+
     if ( this.moreThan700Km ){
       let priceInRiyal = (this.rideDistance/1000) / 4;
       let percentPriceInriyal = (priceInRiyal*20) / 100
@@ -97,7 +97,8 @@ export class RidePriceComponent implements OnInit {
     }
   }
   nextStep(){
-    this.userSer.setNumberOfSeats(this.ridePrice);
-    console.log(this.userSer.getRideDetails().rideDistance.value);
+    this.userSer.setRidePrice(this.ridePrice);
+    // console.log(this.userSer.getRideDetails().rideDistance.value);
+    this.router.navigate(['/add/confirm-ride'])
   }
 }

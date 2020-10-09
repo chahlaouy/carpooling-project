@@ -21,6 +21,7 @@ import { RideSourceComponent } from './ride-source/ride-source.component';
 import { RideDestinationComponent } from './ride-destination/ride-destination.component';
 import { RideSeatsComponent } from './ride-seats/ride-seats.component';
 import { RidePriceComponent } from './ride-price/ride-price.component';
+import { ConfirmRideComponent } from './confirm-ride/confirm-ride.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,10 @@ const routes: Routes = [
     path: 'add/ride-price',
     component: RidePriceComponent,
   },
+  {
+    path: 'add/confirm-ride',
+    component: ConfirmRideComponent,
+  },
 ];
 
 
@@ -98,7 +103,8 @@ const routes: Routes = [
     RideSourceComponent,
     RideDestinationComponent,
     RideSeatsComponent,
-    RidePriceComponent
+    RidePriceComponent,
+    ConfirmRideComponent
   ],
   imports: [
     CommonModule,

@@ -15,11 +15,9 @@ export class RideSeatsComponent implements OnInit {
   ) { }
 
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   nextStepRidePrice(){
-    console.log(this.numberOfSeats);
     this.userSer.setNumberOfSeats(this.numberOfSeats);
     this.router.navigate(['add/ride-price']);
   }
